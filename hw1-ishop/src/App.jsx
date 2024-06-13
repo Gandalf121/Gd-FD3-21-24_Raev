@@ -32,14 +32,12 @@ function App() {
   }, [product]);
 
   return (
-    <>
-      <Table
-        name={"Название магазина"}
-        data={data}
-        width={"500px"}
-        height={"500px"}
-      />
-    </>
+    <Table
+      name={"Название магазина"}
+      data={data}
+      width={"500px"}
+      height={"500px"}
+    />
   );
 }
 
