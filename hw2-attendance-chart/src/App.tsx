@@ -5,12 +5,12 @@ import "./App.css"
 
 
 const App = () => {
-    const [state, setState] = useState<AppState>({
+    const [tableData, setTableData] = useState<AppState>({
         students: [],
         dates: [],
         attendance: {},
     });
-    console.log(state)
+    console.log(tableData)
     const [isSaving, setIsSaving] = useState<boolean>(false);
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const App = () => {
             const storedData = localStorage.getItem("data");
             if (storedData) {
                 const { students, dates, attendance } = JSON.parse(storedData);
-                setState({ students, dates, attendance });
+                setTableData({ students, dates, attendance });
             }
         } catch (error) {
             console.error(error);
@@ -29,7 +29,7 @@ const App = () => {
     const handleSave = () => {
         setIsSaving(true);
         setTimeout(() => {
-            localStorage.setItem("data", JSON.stringify(state));
+            localStorage.setItem("data", JSON.stringify(tableData));
             setIsSaving(false);
         }, 2000);
     };
@@ -38,21 +38,21 @@ const App = () => {
     return (
         <>
             <AttendanceTable
-                students={state.students}
-                dates={state.dates}
-                attendance={state.attendance}
+                students={tableData.students}
+                dates={tableData.dates}
+                attendance={tableData.attendance}
                 onAddStudent={(name) => {
-                    setState((prev) => ({
+                    setTableData((prev) => ({
                         ...prev,
                         students: [...prev.students, { id: prev.students.length + 1, name }],
                     }));
                 }}
                 onAddDate={(date) => {
-                    setState((prev) => ({ ...prev, dates: [...prev.dates, date] }));
+                    setTableData((prev) => ({ ...prev, dates: [...prev.dates, date] }));
                 }}
 
                 onToggleAttendance={(date, studentId) => {
-                    setState((prev) => {
+                    setTableData((prev) => {
                         const newAttendance = { ...prev.attendance };
                         newAttendance[date] = newAttendance[date] || {};
                         newAttendance[date][studentId] = !newAttendance[date][studentId];
