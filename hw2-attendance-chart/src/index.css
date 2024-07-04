@@ -46,6 +46,16 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+th,td{
+  border: 1px solid white;
+  padding: 0.6em 1.2em;
+}
+table{
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
 button:hover {
   border-color: #646cff;
 }
