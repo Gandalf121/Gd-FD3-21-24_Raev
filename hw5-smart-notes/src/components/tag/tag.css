@@ -1,0 +1,15 @@
+.tagsContainer{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: start;
+    margin-left: 2rem;
+    height: 91vh;
+}
+.tagListContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    overflow-y: auto;
+}
