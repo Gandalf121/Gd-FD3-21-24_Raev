@@ -1,0 +1,20 @@
+{
+  "baseURL": "https://jsonplaceholder.typicode.com/",
+
+  "user": {
+    "getAllUsers": "/users",
+    "getUser": "/users/"
+  },
+  "album": {
+    "getAllAlbums": "/albums",
+    "getAlbum": "/albums/",
+    "getAlbumByIdUser": "/albums?userId="
+  },
+  "photos": {
+    "getAllPhotos": "/photos",
+    "getPhotosById": "/photos/1",
+    "getPhotoByIdAlbum": "/photos?albumId="
+  }
+
+
+}
